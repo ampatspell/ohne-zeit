@@ -1,6 +1,8 @@
 /* eslint-env node */
 'use strict';
 
+const { COUCH_URL, DATABASE_NAME, CHANGES_FEED } = process.env;
+
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ohne-zeit',
@@ -9,18 +11,17 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
       },
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
-
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      couch: {
+        url: COUCH_URL,
+        database: DATABASE_NAME,
+        feed: CHANGES_FEED
+      }
     }
   };
 
