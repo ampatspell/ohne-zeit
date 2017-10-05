@@ -1,8 +1,6 @@
 /* eslint-env node */
 'use strict';
 
-const { COUCH_URL, DATABASE_NAME, CHANGES_FEED } = process.env;
-
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ohne-zeit',
@@ -17,11 +15,6 @@ module.exports = function(environment) {
       }
     },
     APP: {
-      couch: {
-        url: COUCH_URL,
-        database: DATABASE_NAME,
-        feed: CHANGES_FEED
-      }
     }
   };
 
