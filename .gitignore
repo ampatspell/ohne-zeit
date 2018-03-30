@@ -1,12 +1,13 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+.DS_Store
+
 # compiled output
 /dist
 /tmp
 
 # dependencies
 /node_modules
-/fastboot-server/node_modules
 /bower_components
 
 # misc
@@ -22,6 +23,3 @@ testem.log
 .node_modules.ember-try/
 bower.json.ember-try
 package.json.ember-try
-
-.DS_Store
-.env

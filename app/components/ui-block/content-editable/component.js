@@ -1,11 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { observer } from '@ember/object';
 
-const {
-  on,
-  observer
-} = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   classNameBindings: [ ':ui-block', ':content-editable' ],
   attributeBindings: [ 'contenteditable' ],
 
@@ -26,18 +22,21 @@ export default Ember.Component.extend({
     this._updateInnerText();
   }),
 
-  _start: on('didInsertElement', function() {
+  didInsertElement() {
+    this._super(...arguments);
     this._updateInnerText();
     this.$().on('paste', () => false);
-  }),
+  },
 
-  _stop: on('willDestroyElement', function() {
+  willDestroyElement() {
+    this._super(...arguments);
     this.$().off('paste');
-  }),
+  },
 
   keyDown(e) {
     if(e.keyCode === 13) {
-      this.attrs.enter && this.attrs.enter();
+      let enter = this.get('enter');
+      enter && enter();
       this.$().blur();
       return false;
     }
@@ -47,7 +46,8 @@ export default Ember.Component.extend({
   keyUp() {
     let el = this.get('element');
     let value = el.innerText;
-    this.attrs.update && this.attrs.update(value);
+    let update = this.get('update');
+    update && update(value);
   }
 
 });
