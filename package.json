@@ -16,7 +16,7 @@
     "start": "ember serve",
     "test": "ember test",
     "bump": "npm version patch; git push --follow-tags",
-    "deploy": "ember build -prod && firebase deploy"
+    "deploy": "npm run bump && ember build -prod && firebase deploy"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
