@@ -8,7 +8,7 @@ export default {
       let query = ref.query({ type: 'array' });
       await query.load();
       return query.get('content').map(doc => doc.get('data').getProperties('created_at', 'text'));
-    }
+    };
 
   }
 };

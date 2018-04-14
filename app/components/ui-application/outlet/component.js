@@ -11,7 +11,7 @@ const getTransition = ({newItems, oldItems}) => {
     from: oldRoute && oldRoute.outlets.main.render.name,
     to:   newRoute && newRoute.outlets.main.render.name
   };
-}
+};
 
 const duration = 500;
 
@@ -38,7 +38,7 @@ export default Component.extend({
           );
         });
 
-      }
+      };
     }
   }
 

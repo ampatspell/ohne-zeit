@@ -7,7 +7,7 @@ const isBlank = string => {
     return true;
   }
   return string.trim().length === 0;
-}
+};
 
 export default Component.extend({
   classNameBindings: [ ':ui-route', ':index' ],
