@@ -22,9 +22,6 @@ export default Store.extend({
   options,
 
   restore() {
-    return resolve()
-      .then(() => this.get('ready'))
-      .then(() => this);
   },
 
   messagesRef: computed(function() {
