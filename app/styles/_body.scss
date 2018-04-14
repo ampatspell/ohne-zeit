@@ -26,3 +26,8 @@ body {
     flex-direction: column;
   }
 }
+
+* {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

@@ -1,7 +1,6 @@
 import Store from 'ember-cli-zuglet/store';
 import serverTimestamp from 'ember-cli-zuglet/util/server-timestamp';
 import { computed } from '@ember/object';
-import { resolve } from 'rsvp';
 
 const options = {
   firebase: {

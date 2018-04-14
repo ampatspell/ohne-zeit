@@ -4,10 +4,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  color: #ddd;
+  color: #aaa;
   font-weight: 200;
-  font-size: 42px;
-  line-height: 42px * 1.3;
+  font-size: 36px;
+  line-height: 36px * 1.3;
   @include media(phone) {
     font-size: 31px;
     line-height: 31px * 1.3;
