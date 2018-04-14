@@ -12,9 +12,9 @@ const isBlank = string => {
 export default Component.extend({
   classNameBindings: [ ':ui-route', ':index' ],
 
-  latest: readOnly('state.latest.content'),
+  latest: readOnly('store.latest.content'),
 
-  pristine: readOnly('latest.text'),
+  pristine: readOnly('latest.data.text'),
   local: null,
 
   text: computed('pristine', 'local', {
@@ -58,7 +58,7 @@ export default Component.extend({
       return;
     }
 
-    this.get('state').createMessage(local).then(() => {
+    this.get('store').addMessage(local).then(() => {
       if(this.isDestroying) {
         return;
       }

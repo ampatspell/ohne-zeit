@@ -1,13 +1,13 @@
-
 export default {
   name: 'ohne-zeit:messages',
-  after: 'ohne-zeit:store',
   initialize(app) {
 
     window.messages = async () => {
-      let all = app.lookup('service:state').get('all');
-      await all.load();
-      return all.get('content').map(model => model.getProperties('createdAt', 'text'));
+      let store =  app.lookup('service:store');
+      let ref = store.collection('messages').orderBy('created_at', 'desc');
+      let query = ref.query({ type: 'array' });
+      await query.load();
+      return query.get('content').map(doc => doc.get('data').getProperties('created_at', 'text'));
     }
 
   }
