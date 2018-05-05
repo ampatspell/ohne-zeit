@@ -1,5 +1,4 @@
 import Store from 'ember-cli-zuglet/store';
-import serverTimestamp from 'ember-cli-zuglet/util/server-timestamp';
 import { computed } from '@ember/object';
 
 const options = {
@@ -43,7 +42,7 @@ export default Store.extend({
     let doc = this.get('messagesRef').doc().new();
     doc.get('data').setProperties({
       text,
-      created_at: serverTimestamp()
+      created_at: this.serverTimestamp()
     });
     await doc.save();
   },
