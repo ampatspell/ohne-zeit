@@ -16,7 +16,7 @@ export default Route.extend({
     },
 
     async load() {
-      await resolveObservers(this.lates);
+      await resolveObservers(this.latest);
     },
 
     async addMessage(text) {
