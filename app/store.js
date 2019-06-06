@@ -6,8 +6,7 @@ const options = {
     authDomain: "ohne-zeit.firebaseapp.com",
     databaseURL: "https://ohne-zeit.firebaseio.com",
     projectId: "ohne-zeit",
-    storageBucket: "ohne-zeit.appspot.com",
-    messagingSenderId: "491555737764"
+    storageBucket: "ohne-zeit.appspot.com"
   },
   firestore: {
     persistenceEnabled: true
