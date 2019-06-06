@@ -1,26 +1,22 @@
 import Route from '@ember/routing/route';
 import { computed } from '@ember/object';
-import observed from 'ember-cli-zuglet/experimental/observed';
-import model from 'ember-cli-zuglet/experimental/model/route';
+import { observed, route, resolveObservers } from 'ember-cli-zuglet/lifecycle';
 
 export default Route.extend({
 
-  model: model({
+  model: route().inline({
 
     messages: computed(function() {
       return this.store.collection('messages');
     }),
 
-    latest: observed(),
+    latest: observed().owner('messages').content(({ messages }) => messages.orderBy('created_at', 'desc').query({ type: 'first' })),
 
     prepare() {
-      let latest = this.messages.orderBy('created_at', 'desc').query({ type: 'first' });
+    },
 
-      this.setProperties({
-        latest
-      });
-
-      return latest.load();
+    async load() {
+      await resolveObservers(this.lates);
     },
 
     async addMessage(text) {
