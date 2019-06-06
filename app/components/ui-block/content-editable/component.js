@@ -18,7 +18,7 @@ export default Component.extend({
     el.innerText = value;
   },
 
-  _valueDidChange: observer('value', function() {
+  _valueDidChange: observer('value', function() { // eslint-disable-line ember/no-observers
     this._updateInnerText();
   }),
 
