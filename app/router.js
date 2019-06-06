@@ -9,7 +9,7 @@ const doneLoading = () => {
   _doneLoading = true;
   let el = document.querySelector('.ui-application-loading');
   el.style.display = 'none';
-}
+};
 
 const Router = EmberRouter.extend({
   location: config.locationType,
