@@ -1,7 +1,8 @@
-{{ui-block/content-editable
-    class="content"
-    placeholder="Say something"
-    value=text
-    update=(action "update")
-    enter=(action "enter")
+{{content-editable
+  class="content"
+  placeholder="Say something"
+  value=text
+  allowNewlines=false
+  enter=(action 'enter')
+  escape-press=(action 'rollback')
 }}

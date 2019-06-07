@@ -35,12 +35,19 @@ export default Component.extend({
   }),
 
   actions: {
-    update(value) {
-      this.set('text', value);
+    rollback(e) {
+      this.set('local', null);
+      this._blur(e);
     },
-    enter() {
+    enter(e) {
       this.save();
+      this._blur(e);
     }
+  },
+
+  _blur(e) {
+    e.target.blur();
+    window.getSelection().removeAllRanges();
   },
 
   save() {
